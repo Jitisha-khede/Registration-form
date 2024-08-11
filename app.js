@@ -17,6 +17,14 @@ app.listen(PORT,()=>{
     console.log(`server started at port ${PORT}`);
 });
 
-mongoose.connect('mongodb://127.0.0.1:27017/registration-form-data').then(()=>{
-    console.log('DB connected');
-});
+const mongoURI = 'mongodb+srv://khedejitisha2004:Shubhiatlas@cluster0.txi4a.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+try{
+    mongoose.connect(mongoURI,{
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }).then(()=>{
+        console.log('mongoDB connected');
+    })
+}catch(e){
+    console.log(e);
+}
